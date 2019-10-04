@@ -143,9 +143,8 @@ defmodule ExJsonSchema.Validator.Properties do
       properties
       |> keys_as_set()
       |> MapSet.difference(keys_as_set(validated_properties))
-      |> Enum.to_list()
 
-    Map.take(properties, unvalidated)
+    Map.take(properties, Enum.to_list(unvalidated))
   end
 
   defp keys_as_set(properties) do
